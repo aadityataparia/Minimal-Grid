@@ -9,7 +9,7 @@
   <link rel="shortcut icon" href="./static/favicon.ico" />
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:900" rel="stylesheet">
   <link rel="stylesheet" href="https://www.launchaco.com/static/AllTemplates.min.css">
-  <link rel="stylesheet" href="./minimal-grid.css">
+  <link rel="stylesheet" href="./minimal-grid.min.css">
   <style>
     .launchaco-promo {
       position: fixed;
@@ -160,7 +160,7 @@
     <div class="grid pad-l">
       <div class="s-12 l-4 grid pad-l">
         <i class="s-12 pad-l">
-            <img src="./responsive.svg" alt="Responsive">
+            <img src="./static/responsive.svg" alt="Responsive">
           </i>
         <div class="s-12">
           <h3 class="bold primary-color launchaco-builder-hoverable">Responsive</h3>
@@ -169,7 +169,7 @@
       </div>
       <div class="s-12 l-4 grid pad-l">
         <i class="s-12 pad-l">
-            <img src="./feather.svg" alt="Responsive">
+            <img src="./static/feather.svg" alt="Responsive">
           </i>
         <div class="s-12">
           <h3 class="bold primary-color launchaco-builder-hoverable">Minimal</h3>
@@ -178,7 +178,7 @@
       </div>
       <div class="s-12 l-4 grid pad-l">
         <i class="s-12 pad-l">
-            <img src="./settings.svg" alt="Responsive">
+            <img src="./static/settings.svg" alt="Responsive">
           </i>
         <div class="s-12">
           <h3 class="bold primary-color launchaco-builder-hoverable">Cutomizable</h3>
@@ -396,23 +396,10 @@
       </div>
       <!---->
     </div>
+    <div class="container col-12 text-center">
+      <a href="https://www.launchaco.com/">Page template by Launchaco</a>
+    </div>
   </section>
 </body>
-
-<script>
-  window.onscroll = function() {
-    showAd()
-  }
-
-  function showAd() {
-    var scrollBarPosition = window.pageYOffset | document.body.scrollTop;
-
-    // At specifiv position do what you want
-    if (scrollBarPosition > 300) {
-      document.getElementById("visual-dreamer").className = "launchaco-promo launchaco-promo__active";
-      window.onscroll = function() {};
-    }
-  }
-</script>
 
 </html>

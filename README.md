@@ -5,7 +5,7 @@ Includes sass, css and minified css.
 
 Examples at https://aadityataparia.github.io/minimal-grid.html
 
-![Example](./minimal-grid.png)
+![Example](./static/minimal-grid.png)
 
 ## How to use css (with default values)
 - Simple grid is based on 12 column based design, i.e. \*-1 means 100/12% width, \*-2 means 100*2/12% and so on..
