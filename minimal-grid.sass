@@ -1,0 +1,90 @@
+/* Minimal grid
+ * Author - Aaditya Taparia
+
+$medium-break: 960px
+$small-break: 480px
+$grid-size: 12
+$small-prefix: s
+$medium-prefix: m
+$large-prefix: l
+$margin-prefix: mar
+$padding-prefix: pad
+$gaps: (0: 0, s: 8px, m: 16px, l: 24px)
+$border-color: #000000
+
+[class='grid'],
+[class^='#{$large-prefix}-'],
+[class^='#{$medium-prefix}-'],
+[class^='#{$small-prefix}-'],
+.grid:after
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+[class^='#{$large-prefix}-']
+  float: left
+  min-height: 1px
+
+.grid
+  width: 100%
+  overflow: hidden
+
+.grid:after
+  content: ""
+  clear: both
+
+[class^='#{$small-prefix}-']
+  float: left
+
+/* Small Columns (use for desktops)
+@for $i from 1 through $grid-size
+  .#{$small-prefix}-#{$i}
+    width: $i / $grid-size * 100%
+
+/* Medium Columns (use for tablets)
+@media only screen and (min-width: $small-break + 1px)
+  [class^='#{$medium-prefix}-']
+    float: left
+
+  @for $i from 1 through $grid-size
+    .#{$medium-prefix}-#{$i}
+      width: $i / $grid-size * 100%
+
+/* Large Columns (use for desktops)
+@media only screen and (min-width: $medium-break + 1px)
+  [class^='#{$large-prefix}-']
+    float: left
+
+  @for $i from 1 through $grid-size
+    .#{$large-prefix}-#{$i}
+      width: $i / $grid-size * 100%
+
+  .hide-on-#{$large-prefix}
+    display: none !important
+
+@media only screen and (max-width: $medium-break) and (min-width: $small-break + 1px)
+  .hide-on-#{$medium-prefix}
+    display: none !important
+
+@media only screen and (max-width: $small-break)
+  .hide-on-#{$small-prefix}
+    display: none !important
+
+/* Margin and Padding classes
+@each $key, $value in $gaps
+  .#{$padding-prefix}-#{$key}
+    padding: $value
+
+  .#{$margin-prefix}-#{$key}
+    margin: $value
+
+.b-1s
+  border: 1px solid $border-color
+
+.f-right
+  float: right
+
+.f-left
+  float: left

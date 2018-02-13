@@ -1,0 +1,417 @@
+<html>
+
+<head>
+  <title>MinimalGrid</title>
+  <meta charSet="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Simplest hackable grid">
+  <meta property="og:image" content="">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:900" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.launchaco.com/static/AllTemplates.min.css">
+  <link rel="stylesheet" href="./minimal-grid.css">
+  <style>
+    .launchaco-promo {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      cursor: pointer;
+      width: 0;
+      height: 0;
+      z-index: 999999;
+    }
+
+    .launchaco-promo__active {
+      width: initial;
+      height: initial;
+    }
+
+    .launchaco-promo-speechbubble {
+      font-family: -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+      position: absolute;
+      left: 50px;
+      top: -11px;
+      padding: 9px;
+      color: white;
+      border-radius: 3px;
+      background: linear-gradient(#227ef7, #1290fc);
+      font-size: 14px;
+      font-weight: 600;
+      width: 93px;
+      box-sizing: border-box;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .15s ease-in-out;
+    }
+
+    .launchaco-promo__active:hover .launchaco-promo-speechbubble {
+      opacity: 1;
+    }
+
+    .launchaco-promo svg {
+      transition: all .3s ease-in-out;
+      opacity: 0;
+    }
+
+    .launchaco-promo__active svg {
+      opacity: 1;
+    }
+
+    .launchaco-promo-speechbubble:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+      left: -4px;
+      bottom: 10px;
+      border-radius: 3px;
+      background: #1290fc;
+      z-index: 2;
+      position: absolute
+    }
+
+    .launchaco-promo__active .launchaco-promo-speechbubble__animate {
+      animation: popinpopup 3s linear forwards 0.1s;
+    }
+
+    @keyframes popinpopup {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, 3px, 0)
+      }
+      7%,
+      93% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+      }
+      100% {
+        opacity: 0;
+        transform: translate3d(0, -4px, 0)
+      }
+    }
+
+    .launchaco-promo-animate:hover {
+      opacity: 1 !important;
+    }
+
+    .examples .grid [class*='l-'],
+    .examples .grid [class*='m-'],
+    .examples .grid [class*='s-'] {
+      background-color: #227ef7;
+      border-radius: 3px;
+      border: 10px solid white;
+      font-size: 24px;
+      line-height: 32px;
+      color: white;
+    }
+
+    .x {
+      background-color: white;
+      color: #227ef7;
+    }
+
+    .features {
+      text-align: center;
+    }
+
+    .features img {
+      height: 100px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body class="font-hacker">
+  <div class="lightblue-accent">
+    <!---->
+    <header class="header">
+      <div class="container-lrg">
+        <div class="flex col-12 spread">
+          <a class="logo primary-color launchaco-builder-hoverable">MinimalGrid</a>
+          <a href="mailto:aadityataparia@gmail.com?subject=Minimalgrid%20Feedback&amp;body=Hi%20Minimalgrid,%0a%0a%0a" class="paragraph secondary-color email accent-bg header-email">Contact</a>
+        </div>
+      </div>
+    </header>
+    <section class="section">
+      <div class="container">
+        <div class="col-12 text-center">
+          <h1 class="heading-lrg primary-color launchaco-builder-hoverable">Simplest hackable grid</h1>
+          <h2 class="subheading secondary-color mt20 launchaco-builder-hoverable">Customize your grid by just editing a few variables in sass file</h2>
+          <div class="mt40">
+            <a href="https://github.com/aadityataparia/Minimal-Grid" target="_blank" class="button mt10 launchaco-builder-hoverable primary-color accent-bg fill-white">
+                <svg width="25" height="24" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.889 6.13a12.214 12.214 0 0 0-4.465-4.464C16.544.569 14.493.02 12.267.02S7.989.57 6.11 1.666A12.212 12.212 0 0 0 1.645 6.13C.548 8.01 0 10.062 0 12.287c0 2.673.78 5.077 2.34 7.212 1.56 2.135 3.575 3.612 6.045 4.432.288.053.5.016.64-.112a.625.625 0 0 0 .207-.479l-.008-.862c-.006-.544-.008-1.017-.008-1.422l-.368.064c-.234.043-.53.061-.886.056a6.754 6.754 0 0 1-1.11-.112 2.48 2.48 0 0 1-1.07-.479 2.027 2.027 0 0 1-.703-.982l-.16-.368a3.991 3.991 0 0 0-.503-.814c-.229-.298-.46-.5-.695-.607l-.111-.08a1.173 1.173 0 0 1-.208-.192.876.876 0 0 1-.144-.223c-.032-.075-.005-.136.08-.184.085-.048.24-.072.463-.072l.32.048c.213.043.476.17.79.383.314.213.573.49.775.83.245.437.54.77.886.999.346.229.695.343 1.047.343.35 0 .654-.026.91-.08.255-.053.495-.133.719-.24.096-.713.356-1.261.782-1.644a10.937 10.937 0 0 1-1.637-.288 6.519 6.519 0 0 1-1.501-.623 4.3 4.3 0 0 1-1.286-1.07c-.34-.426-.62-.985-.838-1.677-.219-.693-.328-1.491-.328-2.396 0-1.289.42-2.385 1.262-3.29-.394-.97-.357-2.056.112-3.259.309-.096.767-.024 1.373.216.607.24 1.052.445 1.334.615.282.17.509.314.68.431.99-.277 2.012-.415 3.066-.415 1.054 0 2.076.138 3.067.415l.607-.383c.415-.256.905-.49 1.469-.703.564-.213.996-.272 1.294-.176.48 1.204.522 2.29.128 3.259.84.905 1.262 2.002 1.262 3.29 0 .905-.11 1.706-.328 2.404-.218.697-.5 1.256-.846 1.677-.346.42-.778.775-1.294 1.062a6.531 6.531 0 0 1-1.501.623c-.485.128-1.03.224-1.638.288.554.479.83 1.235.83 2.268v3.37c0 .191.067.351.2.479.134.127.344.165.631.111 2.471-.82 4.486-2.297 6.046-4.432 1.56-2.135 2.34-4.538 2.34-7.211 0-2.225-.55-4.278-1.645-6.157z"></path>
+                </svg>
+                <span> View on Github </span>
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class="container mt75">
+        <div class="col-12">
+          <div class="codeblock">
+            <pre><code class="hljs bash"><table class="hljs-ln"><tbody><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-variable">$grid</span>-size: 12</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line"> </div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">.grid {</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    width: 100%</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">    overflow: hidden</div></td></tr><tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code"><div class="hljs-ln-line">}</div></td></tr></tbody></table></code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <section class="section lightblue-white features">
+    <div class="grid pad-l">
+      <div class="s-12 l-4 grid pad-l">
+        <i class="s-12 pad-l">
+            <img src="./responsive.svg" alt="Responsive">
+          </i>
+        <div class="s-12">
+          <h3 class="bold primary-color launchaco-builder-hoverable">Responsive</h3>
+          <p class="paragraph secondary-color launchaco-builder-hoverable">Easy column classes to build responsive websites mobile-first approach.</p>
+        </div>
+      </div>
+      <div class="s-12 l-4 grid pad-l">
+        <i class="s-12 pad-l">
+            <img src="./feather.svg" alt="Responsive">
+          </i>
+        <div class="s-12">
+          <h3 class="bold primary-color launchaco-builder-hoverable">Minimal</h3>
+          <p class="paragraph secondary-color launchaco-builder-hoverable">Minimal Features. Small Size.</p>
+        </div>
+      </div>
+      <div class="s-12 l-4 grid pad-l">
+        <i class="s-12 pad-l">
+            <img src="./settings.svg" alt="Responsive">
+          </i>
+        <div class="s-12">
+          <h3 class="bold primary-color launchaco-builder-hoverable">Cutomizable</h3>
+          <p class="paragraph secondary-color launchaco-builder-hoverable">Edit sass to create your own custom grid.</p>
+        </div>
+      </div>
+    </div>
+    <!---->
+  </section>
+  <section class="section lightblue-black">
+    <div class="container text-center mb75">
+      <div class="col-12">
+        <h3 class="heading primary-color launchaco-builder-hoverable">Default CSS Grid</h3>
+        <!---->
+      </div>
+    </div>
+    <div class="container flex">
+      <ul class="checklist col-12">
+        <li class="checklist-item flex center-horizontal spread pad10 launchaco-builder-hoverable">
+          <p class="paragraph primary-color mr20">To use grid, add <span class="x">grid</span> class to parent element and <span class="x">s-*</span>, <span class="x">m-*</span> or <span class="x">l-*</span> classes to children elements.</p>
+          <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="noshrink svg-fill">
+              <g transform="translate(4.000000, 5.000000)">
+                <path d="M5.24961475,8.39956394 L2.16512063,5.35475362 C1.74038521,4.93548271 1.05017933,4.9352057 0.624646383,5.35526395 C0.199019838,5.77541456 0.198881924,6.45614266 0.624129379,6.8759191 L4.35212111,10.555948 C4.38658274,10.6034965 4.42544251,10.6488955 4.46870038,10.6915969 C4.70907746,10.9288814 5.03375662,11.0320952 5.3475228,11.0013023 C5.59592563,10.9812599 5.83876209,10.8774981 6.02880771,10.6898975 C6.06831079,10.6509027 6.10414872,10.6096632 6.13632157,10.5665961 L13.9850992,2.81879759 C14.4107939,2.39857976 14.410861,1.71746456 13.985328,1.29740632 C13.5597015,0.8772557 12.8697673,0.877449143 12.444108,1.29763217 L5.24961475,8.39956394 Z"></path>
+              </g>
+            </svg>
+        </li>
+        <li class="checklist-item flex center-horizontal spread pad10 launchaco-builder-hoverable">
+          <p class="paragraph primary-color mr20">Based on 12 column based design, i.e. <span class="x">*-1</span> means 100/12% width, <span class="x">*-2</span> means 100*2/12% and so on..</p>
+          <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="noshrink svg-fill">
+              <g transform="translate(4.000000, 5.000000)">
+                <path d="M5.24961475,8.39956394 L2.16512063,5.35475362 C1.74038521,4.93548271 1.05017933,4.9352057 0.624646383,5.35526395 C0.199019838,5.77541456 0.198881924,6.45614266 0.624129379,6.8759191 L4.35212111,10.555948 C4.38658274,10.6034965 4.42544251,10.6488955 4.46870038,10.6915969 C4.70907746,10.9288814 5.03375662,11.0320952 5.3475228,11.0013023 C5.59592563,10.9812599 5.83876209,10.8774981 6.02880771,10.6898975 C6.06831079,10.6509027 6.10414872,10.6096632 6.13632157,10.5665961 L13.9850992,2.81879759 C14.4107939,2.39857976 14.410861,1.71746456 13.985328,1.29740632 C13.5597015,0.8772557 12.8697673,0.877449143 12.444108,1.29763217 L5.24961475,8.39956394 Z"></path>
+              </g>
+            </svg>
+        </li>
+        <li class="checklist-item flex center-horizontal spread pad10 launchaco-builder-hoverable">
+          <p class="paragraph primary-color mr20">There are three types of grid classes s (for mobile phones), m (for tablets), l (for desktops)</p>
+          <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="noshrink svg-fill">
+              <g transform="translate(4.000000, 5.000000)">
+                <path d="M5.24961475,8.39956394 L2.16512063,5.35475362 C1.74038521,4.93548271 1.05017933,4.9352057 0.624646383,5.35526395 C0.199019838,5.77541456 0.198881924,6.45614266 0.624129379,6.8759191 L4.35212111,10.555948 C4.38658274,10.6034965 4.42544251,10.6488955 4.46870038,10.6915969 C4.70907746,10.9288814 5.03375662,11.0320952 5.3475228,11.0013023 C5.59592563,10.9812599 5.83876209,10.8774981 6.02880771,10.6898975 C6.06831079,10.6509027 6.10414872,10.6096632 6.13632157,10.5665961 L13.9850992,2.81879759 C14.4107939,2.39857976 14.410861,1.71746456 13.985328,1.29740632 C13.5597015,0.8772557 12.8697673,0.877449143 12.444108,1.29763217 L5.24961475,8.39956394 Z"></path>
+              </g>
+            </svg>
+        </li>
+        <li class="checklist-item flex center-horizontal spread pad10 launchaco-builder-hoverable">
+          <p class="paragraph primary-color mr20"><span class="x">mar-*</span> are margin classes (0, s, m and l types)</p>
+          <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="noshrink svg-fill">
+              <g transform="translate(4.000000, 5.000000)">
+                <path d="M5.24961475,8.39956394 L2.16512063,5.35475362 C1.74038521,4.93548271 1.05017933,4.9352057 0.624646383,5.35526395 C0.199019838,5.77541456 0.198881924,6.45614266 0.624129379,6.8759191 L4.35212111,10.555948 C4.38658274,10.6034965 4.42544251,10.6488955 4.46870038,10.6915969 C4.70907746,10.9288814 5.03375662,11.0320952 5.3475228,11.0013023 C5.59592563,10.9812599 5.83876209,10.8774981 6.02880771,10.6898975 C6.06831079,10.6509027 6.10414872,10.6096632 6.13632157,10.5665961 L13.9850992,2.81879759 C14.4107939,2.39857976 14.410861,1.71746456 13.985328,1.29740632 C13.5597015,0.8772557 12.8697673,0.877449143 12.444108,1.29763217 L5.24961475,8.39956394 Z"></path>
+              </g>
+            </svg>
+        </li>
+        <li class="checklist-item flex center-horizontal spread pad10 launchaco-builder-hoverable">
+          <p class="paragraph primary-color mr20"><span class="x">pad-*</span> are padding classes (0, s, m and l types)</p>
+          <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="noshrink svg-fill">
+              <g transform="translate(4.000000, 5.000000)">
+                <path d="M5.24961475,8.39956394 L2.16512063,5.35475362 C1.74038521,4.93548271 1.05017933,4.9352057 0.624646383,5.35526395 C0.199019838,5.77541456 0.198881924,6.45614266 0.624129379,6.8759191 L4.35212111,10.555948 C4.38658274,10.6034965 4.42544251,10.6488955 4.46870038,10.6915969 C4.70907746,10.9288814 5.03375662,11.0320952 5.3475228,11.0013023 C5.59592563,10.9812599 5.83876209,10.8774981 6.02880771,10.6898975 C6.06831079,10.6509027 6.10414872,10.6096632 6.13632157,10.5665961 L13.9850992,2.81879759 C14.4107939,2.39857976 14.410861,1.71746456 13.985328,1.29740632 C13.5597015,0.8772557 12.8697673,0.877449143 12.444108,1.29763217 L5.24961475,8.39956394 Z"></path>
+              </g>
+            </svg>
+        </li>
+        <li class="checklist-item flex center-horizontal spread pad10 launchaco-builder-hoverable">
+          <p class="paragraph primary-color mr20"><span class="x">hide-on-s</span> class hides element on mobile phones, <span class="x">hide-on-m</span> on tablets and <span class="x">hide-on-l</span> on desktop</p>
+          <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="noshrink svg-fill">
+              <g transform="translate(4.000000, 5.000000)">
+                <path d="M5.24961475,8.39956394 L2.16512063,5.35475362 C1.74038521,4.93548271 1.05017933,4.9352057 0.624646383,5.35526395 C0.199019838,5.77541456 0.198881924,6.45614266 0.624129379,6.8759191 L4.35212111,10.555948 C4.38658274,10.6034965 4.42544251,10.6488955 4.46870038,10.6915969 C4.70907746,10.9288814 5.03375662,11.0320952 5.3475228,11.0013023 C5.59592563,10.9812599 5.83876209,10.8774981 6.02880771,10.6898975 C6.06831079,10.6509027 6.10414872,10.6096632 6.13632157,10.5665961 L13.9850992,2.81879759 C14.4107939,2.39857976 14.410861,1.71746456 13.985328,1.29740632 C13.5597015,0.8772557 12.8697673,0.877449143 12.444108,1.29763217 L5.24961475,8.39956394 Z"></path>
+              </g>
+            </svg>
+        </li>
+      </ul>
+    </div>
+    <!---->
+  </section>
+  <section class="section lightblue-white">
+    <div class="container examples">
+      <div class="col-12 text-center">
+        <h3 class="heading primary-color launchaco-builder-hoverable">
+          Examples
+        </h3>
+        <p class="subheading secondary-color mt20 launchaco-builder-hoverable">
+          <span class="hide-on-s hide-on-m">
+            <b>Large Classes Applied</b> (.hide-on-s .hide-on-m)
+          </span>
+          <span class="hide-on-s hide-on-l">
+            <b>Medium Classes Applied</b> (.hide-on-s .hide-on-l)
+          </span>
+          <span class="hide-on-m hide-on-l">
+            <b>Small Classes Applied</b> (.hide-on-m .hide-on-l)
+          </span>
+        </p>
+        <!---->
+        <div class="grid">
+          <div class="s-6 m-8 l-10 pad-m">
+            <p>.s-6 .m-8 .l-10</p>
+          </div>
+          <div class="s-6 m-4 l-2 pad-m">
+            <p>.s-6 .m-4 .l-2</p>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="s-6 pad-m f-right">
+            <p>.f-right</p>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="s-6 l-3 pad-0">
+            <p>.pad-0</p>
+          </div>
+          <div class="s-6 l-3 pad-s">
+            <p>.pad-s</p>
+          </div>
+          <div class="s-6 l-3 pad-m">
+            <p>.pad-m</p>
+          </div>
+          <div class="s-6 l-3 pad-l">
+            <p>.pad-l</p>
+          </div>
+          <div class="s-6 l-3">
+            <div class="x mar-0">
+              .mar-0
+            </div>
+          </div>
+          <div class="s-6 l-3">
+            <div class="x mar-s">
+              .mar-s
+            </div>
+          </div>
+          <div class="s-6 l-3">
+            <div class="x mar-m">
+              .mar-m
+            </div>
+          </div>
+          <div class="s-6 l-3">
+            <div class="x mar-l">
+              .mar-l
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="col-12 mt40">
+        <div class="faq pad20">
+          <b class="bold primary-color launchaco-builder-hoverable">
+
+            </b>
+          <p class="paragraph secondary-color launchaco-builder-hoverable">
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section lightblue-black">
+    <div class="container text-center mb75">
+      <div class="col-12">
+        <h3 class="heading primary-color launchaco-builder-hoverable">SASS Variables</h3>
+        <p class="subheading secondary-color mt20 launchaco-builder-hoverable">With default values</p>
+      </div>
+    </div>
+    <div class="container flex">
+      <ul class="checklist col-12"></ul>
+    </div>
+    <div class="container mt75">
+      <div class="col-12">
+        <div class="codeblock">
+          <pre><code class="hljs bash"><table class="hljs-ln"><tbody>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-code">
+            <div class="hljs-ln-line"><span class="hljs-variable">$small-break</span><span class="hljs-sad">: 480px </span><span class="hljs-comment">#Breakpoint for small classes (s-*)</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$medium-break</span><span class="hljs-sad">: 960px </span><span class="hljs-comment">#Breakpoint for medium classes (m-*)</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$border-color</span><span class="hljs-sad">: black </span><span class="hljs-comment">#Border color for b-1s class</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$grid-size</span><span class="hljs-sad">: 12 </span><span class="hljs-comment">#Size of grid</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$small-prefix</span><span class="hljs-sad">: s </span><span class="hljs-comment">#Prefix for small classes</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$medium-prefix</span><span class="hljs-sad">: m </span><span class="hljs-comment">#Prefix for medium classes</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$large-prefix</span><span class="hljs-sad">: l </span><span class="hljs-comment">#Prefix for large classes</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$margin-prefix</span><span class="hljs-sad">: mar </span><span class="hljs-comment">#Prefix for margin classes</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$padding-prefix</span><span class="hljs-sad">: pad <span><span class="hljs-comment">#Prefix for padding classes</span></div></td></tr>
+            <tr><td class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></td><td class="hljs-ln-code">
+              <div class="hljs-ln-line"><span class="hljs-variable">$gaps</span><span class="hljs-sad">: (0: 0, s: 8px, m: 16px, l: 24px) </span><span class="hljs-comment">#Map for margin and padding classes with suffix and values</span></div></td></tr></tbody></table></code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section lightblue-white">
+    <div class="container text-center mb75">
+      <h3 class="heading primary-color launchaco-builder-hoverable">Made with &lt;3 by</h3>
+    </div>
+    <div class="container-sml">
+      <div class="flex mb75 launchaco-builder-hoverable">
+        <div class="col-12 text-center">
+          <div class="user-image mb20" style="background-image: url(&quot;https://cdn.launchaco.com/images/815d2482-1db5-40d1-806b-7619d90ed431.png&quot;);"></div>
+          <div>
+            <b class="heading-sml primary-color">@aadityataparia</b>
+            <p class="subheading mt10">Aaditya Taparia</p>
+            <p class="subheading mt10">Full Stack Web Developer</p>
+            <p class="paragraph secondary-color mt20">@Cookpad</p>
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <div class="container col-12 text-center">
+      <!---->
+      <div>
+        <a href="https://twitter.com/aadityataparia" target="_blank" class="socialicons accent-bg twitter"></a>
+        <a href="https://facebook.com/aadityataparia" target="_blank" class="socialicons accent-bg facebook"></a>
+        <a href="mailto:aadityataparia@gmail.com" target="_blank" class="socialicons accent-bg email"></a>
+        <a href="https://medium.com/aadityataparia" target="_blank" class="socialicons accent-bg medium"></a>
+        <a href="https://github.com/aadityataparia" target="_blank" class="socialicons accent-bg github"></a>
+      </div>
+      <!---->
+    </div>
+  </section>
+</body>
+
+<script>
+  window.onscroll = function() {
+    showAd()
+  }
+
+  function showAd() {
+    var scrollBarPosition = window.pageYOffset | document.body.scrollTop;
+
+    // At specifiv position do what you want
+    if (scrollBarPosition > 300) {
+      document.getElementById("visual-dreamer").className = "launchaco-promo launchaco-promo__active";
+      window.onscroll = function() {};
+    }
+  }
+</script>
+
+</html>
