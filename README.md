@@ -3,7 +3,7 @@ Simple grid for building column based responsive websites
 
 Includes sass, css and minified css.
 
-Examples at https://aadityataparia.github.io/minimal-grid.html
+Examples at https://aadityataparia.github.io/Minimal-Grid/index.html
 
 ![Example](./static/minimal-grid.png)
 
