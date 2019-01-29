@@ -1,9 +1,9 @@
 # Minimal-Grid
 Simple grid for building column based responsive websites
 
-Includes sass, css and minified css.
+Includes sass, css and minified css. (0.5KB minified + gzipped)
 
-Examples at https://aadityataparia.github.io/Minimal-Grid/index.html
+Examples at https://aadityataparia.github.io/Minimal-Grid/
 
 ![Example](./static/minimal-grid.png)
 
